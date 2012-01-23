@@ -4,36 +4,82 @@
 	<title>Life Figure-Outer Application</title>
 	<style type="text/css">
 	body {
-		padding-left: 11em;
+		margin-left: 2em;
+		margin-right: 2em;
 		font-family: Arial, "Times New Roman", Times, serif;
 		color: black;
-		background-color: grey }
-	ul.navbar {
-		position: absolute;
-		top: 2em;
-		left: 1em;
-		width: 9em; }
+		border:1px solid black;
+		background-color: #A0A0A0;}
+	h1 {
+		margin-top:0em;
+		margin-bottom:0em;
+		background: #C0C0C0; }
+	h1.title {
+		padding:5px 5px 5px 10px;
+		font-weight:bold;}
+	h1.subtitle {
+		padding:0 0 10px 10px;
+		font-size:85%; 
+		font-weight: normal;
+		color: #606060;}
+	#navbar {
+		width:100%;
+		float:left;
+		margin: 0 0 1em 0;
+		background: black; }
+	#navbar ul {
+		list-style: none;
+		width: 800px;
+		margin: 0;
+		padding:0 0 0 10px; }		
+	#navbar li {
+		float: left; }
+	#navbar li a {
+		display: block;
+		padding:10px 36px 10px 0;
+		text-decoration: none;
+		font-weight: bold;
+		color: #eee; }
+	#navbar li a:link {
+		color: white; }
+	#navbar li a:visited {
+		color: grey; }
+	#navbar li a:hover {
+		color: black;}
+	content {
+		background: white;}
+	greekNonsense {
+		text-weight: bold;
+		font-size: 175%;}
+	address {
+		margin: 1em 0em 0em 0em;
+		padding: 0.5em;
+		background: #E2E2E2; }
+
 	</style>
 </head>
 
 <body>
 
-<!-- Site navigation menu -->
-<ul class="navbar">
-	<li><a href="">Home</a>
-	<li><a href="">Interests</a>
-	<li><a href="">Health</a>
-	<li><a href="">Academic</a>
-	<li><a href="">Professional</a>
-	<li><a href="">Evil</a>
-</ul>
-
 <!-- Main content -->
-<h1>The Magic Life Figure-Outer!</h1>
+<h1>
+<h1 class="title">The Magic Life Figure-Outer!
+<h1 class="subtitle">Figuring out your life for you, so you don't have to...</h1>
 
-<p>Figuring out your life for you, so you don't have to...</p>
+<!-- Site navigation menu -->
+<div id="navbar">
+	<ul>
+		<li><a href="#">Home</a></li>
+		<li><a href="#">Interests</a></li>
+		<li><a href="#">Health</a></li>
+		<li><a href="#">Academic</a></li>
+		<li><a href="#">Professional</a></li>
+		<li><a href="#">Evil</a></li>
+	</ul>
+</div>
 
-<p>Lorem Ipsum Dolor Sit Amet.</p>
+<content>
+<greekNonsense>Lorem Ipsum Dolor Sit Amet.</greekNonsense>
 
 <p>How do you feel today?</p>
 
@@ -42,9 +88,10 @@
 <p>Current Progress in Life</p>
 
 <p>Mediocre.  You should really enjoy life more</p>
+</content>
 
 <!-- Page signature -->
-<address>(C) Borg-Like Monstrosity of Mind Control, Inc.  All rights reserved.</address>
+<address>&#169; Borg-Like Monstrosity of Mind Control, Inc.  All rights reserved.</address>
 
 </body>
 </html>
