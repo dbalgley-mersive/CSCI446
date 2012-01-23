@@ -46,16 +46,23 @@
 		color: grey; }
 	#navbar li a:hover {
 		color: black;}
-	content {
-		background: white;}
 	greekNonsense {
-		text-weight: bold;
+		font-weight: bold;
 		font-size: 175%;}
+	form {
+		padding: 1em 0 1em 0; }
 	address {
 		margin: 1em 0em 0em 0em;
 		padding: 0.5em;
+		font-style:normal;
+		text-align: center;
 		background: #E2E2E2; }
-
+	div.panel { 
+		background-color: white;
+		width: 100%; 
+		height:100%; }
+	div.panel div {
+		padding-left: 1em; }
 	</style>
 </head>
 
@@ -77,18 +84,21 @@
 		<li><a href="#">Evil</a></li>
 	</ul>
 </div>
+<div class="panel">
+  <div><greekNonsense>Lorem Ipsum Dolor Sit Amet.</greekNonsense>
 
-<content>
-<greekNonsense>Lorem Ipsum Dolor Sit Amet.</greekNonsense>
-
-<p>How do you feel today?</p>
+<form>How do you feel today? <input type="text" feel="feeling" /><br /></form>
 
 <p>How would you like to feel?  (choose all that apply)</p>
 
 <p>Current Progress in Life</p>
 
 <p>Mediocre.  You should really enjoy life more</p>
-</content>
+  <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+  </ul>
+</div>
 
 <!-- Page signature -->
 <address>&#169; Borg-Like Monstrosity of Mind Control, Inc.  All rights reserved.</address>
