@@ -48,9 +48,13 @@
 		color: black;}
 	greekNonsense {
 		font-weight: bold;
-		font-size: 175%;}
+		font-size: 175%;
+		display:block;
+		margin-bottom: 0.5em;}
 	form {
-		padding: 1em 0 1em 0; }
+		margin: 0em 0em 0em 2em;}
+	select {
+		margin: 2.5em 0em 0em 2.4em;}
 	address {
 		margin: 1em 0em 0em 0em;
 		padding: 0.5em;
@@ -87,17 +91,30 @@
 <div class="panel">
   <div><greekNonsense>Lorem Ipsum Dolor Sit Amet.</greekNonsense>
 
-<form>How do you feel today? <input type="text" feel="feeling" /><br /></form>
-
-<p>How would you like to feel?  (choose all that apply)</p>
+<table border="0">
+<tr>
+<td>How do you feel today?</td>
+<td><form><input type="text" feel="feeling"/><br/></form></td>
+</tr>
+<td>How would you like to feel?<br />(choose all that apply)</td>
+<td><select name=selectable multiple="yes" size="4">
+<option>Comfortably Numb</option>
+<option>Grumpy as poop, you jerk</option>
+<option>Happy like I'm on controlled substances</option>
+<option>Normal.  Absolutely Normal.</option>
+</select></td>
+</tr>
+<td></td>
+<td><form>
+<br /><input type="submit" value="Feel Me!" />
+</form></td>
+</tr>
+</table>
 
 <p>Current Progress in Life</p>
 
 <p>Mediocre.  You should really enjoy life more</p>
-  <ul>
-    <li>Item 1</li>
-    <li>Item 2</li>
-  </ul>
+
 </div>
 
 <!-- Page signature -->
