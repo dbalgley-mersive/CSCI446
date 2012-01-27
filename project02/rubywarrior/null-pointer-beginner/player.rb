@@ -7,6 +7,10 @@ class Player
 			@warrior.rescue!
 		elsif (@warrior.feel(:backward).captive?)
 			@warrior.rescue! :backward
+		elsif (@warrior.feel.wall?)
+			@warrior.pivot!
+		elsif (@warrior.feel(:backward).enemy?)
+			@warrior.pivot!
 		else
 			@warrior.attack!
 		end
@@ -14,12 +18,10 @@ class Player
 	def overrun
 		if (@warrior.feel(:backward).empty?)
 			@warrior.walk! :backward
-		else
-			if (@warrior.feel(:backward).wall?)
-				safeact
-			elsif (@warrior.feel(:backward).captive?)
-				blocked
-			end
+		elsif (@warrior.feel(:backward).wall?)
+			safeact
+		elsif (@warrior.feel(:backward).captive?)
+			blocked
 		end
 	end
 	def clear?
