@@ -5,15 +5,28 @@ class Player
 	def blocked
 		if (@warrior.feel.captive?)
 			@warrior.rescue!
+		elsif (@warrior.feel(:backward).captive?)
+			@warrior.rescue! :backward
 		else
 			@warrior.attack!
 		end
 	end
-	def safe?
+	def overrun
+		if (@warrior.feel(:backward).empty?)
+			@warrior.walk! :backward
+		else
+			if (@warrior.feel(:backward).wall?)
+				safeact
+			elsif (@warrior.feel(:backward).captive?)
+				blocked
+			end
+		end
+	end
+	def clear?
 		@warrior.feel.empty?
 	end
 	def injured?
-		@warrior.health < 13
+		@warrior.health < 20
 	end
 	def safeact
 		if (injured? and @warrior.health >= @health)
@@ -24,8 +37,10 @@ class Player
 	end
   	def play_turn(warrior)
 	@warrior = warrior
-	if (safe?)
+	if (clear? and @warrior.health > 7)
 		safeact
+	elsif (@warrior.health <= 7)
+		overrun
 	else
 		blocked
 	end
