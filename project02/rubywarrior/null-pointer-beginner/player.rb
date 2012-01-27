@@ -2,11 +2,18 @@ class Player
 	def initialize
 		@health = 0
 	end
+	def blocked
+		if (@warrior.feel.captive?)
+			@warrior.rescue!
+		else
+			@warrior.attack!
+		end
+	end
 	def safe?
 		@warrior.feel.empty?
 	end
 	def injured?
-		@warrior.health < 12
+		@warrior.health < 13
 	end
 	def safeact
 		if (injured? and @warrior.health >= @health)
@@ -20,7 +27,7 @@ class Player
 	if (safe?)
 		safeact
 	else
-		warrior.attack!
+		blocked
 	end
 	@health = warrior.health
 end
