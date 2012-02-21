@@ -1,27 +1,37 @@
 <h1>Articl.es</h1>
 
+<sub>All the World's Articles</sub>
+<%= link_to(image_tag("book_add.png", :border => 0), new_article_path) %> Create an Article
 
+<div style="overflow:scroll; height:355px">
 <table>
+
   <tr class="list_description">
     <th>Title</th>
     <th>Author Name</th>
     <th>Body</th>
     <th>Creation Date</th>
+    <th>Actions</th>
   </tr>
-</table>
 
 
-<div style="overflow:scroll; height:490px">
-<table>
+<!--<subtitle> < article.article_data.subtitle %> </subtitle> 
+offset = rand(Widget.count :all)
+Widget.find :first, :offset => offset-->
 
 <% @articles.each do |article| %>
 
-  <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
 
+  <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+    <p class="body_actions">
     <td><%= article.title %></td>
     <td><%= article.author_name %></td>
-    <td><%= article.body %></td>
-    <td><%= article.creation_date %></td>
+    <td>
+      <p class="body_actions">
+        <%= article.body %>
+      </p>
+    </td>
+    <td><%= article.creation_date.strftime("%A, %b. %d %Y") %></td>
 
 
     <td class="list_actions">
@@ -29,6 +39,7 @@
       <%= link_to(image_tag("book_edit.png", :border => 0), edit_article_path(article)) %>
       <%= link_to(image_tag("bin.png", :border => 0), article, confirm: 'Are you sure you wish to delete this article?', method: :delete) %> 
     </td>
+    </p>
   </tr>
 
 <% end %>
@@ -36,4 +47,7 @@
 </div>
 <br />
 
-<%= link_to 'New Article', new_article_path %>
+<p>
+<%= Article.count %> Articles in Database
+</p>
+

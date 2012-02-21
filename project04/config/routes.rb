@@ -1,4 +1,6 @@
 Articles::Application.routes.draw do
+  resources :article_data
+
   resources :articles
 
   # The priority is based upon order of creation:

@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .articles {
+	font-family: "Arial";
 	table {
 		border-collapse: collapse;
 		border-style: solid;
@@ -15,18 +16,7 @@
 		border-bottom-width: 1px;
 		border-right-width: 1px;
 		border-right-style: solid;
-	}
-
-	.show_button {
-		
-	}
-
-	.edit_button {
-		
-	}
-
-	.delete_button {
-		
+		text-align: center;
 	}
 
 	.list_description {
@@ -51,6 +41,48 @@
 		dd {
 			margin: 0;
 		}
+	}
+
+	ul {
+		list-style-type: none;
+		margin: auto;
+		padding: 0;
+		padding-right: 2em;
+	}
+
+	ul a {
+		padding-right: 70px;
+		padding-left: 70px;
+		display: inline;
+	}
+
+	li {
+		float: left;
+
+	}
+
+	li span {
+		display: none;
+	}
+
+	li:hover span {
+		display: block;
+		position: relative; z-index: -1;  width: 125px;
+		padding: 5px; margin: 10px; z-index: 100;
+		color: #AAA; background: black;
+		font: 10px Verdana, sans-serif; text-align: center;
+	}
+
+	.link_stuff {
+		display: inline;
+	}
+
+	.body_actions {
+		width: 969px;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		margin: 0;
 	}
 
 	.list_actions {
