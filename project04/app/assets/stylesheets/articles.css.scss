@@ -43,6 +43,10 @@
 		}
 	}
 
+	sub {
+		font-size: large;
+	}
+
 	ul {
 		list-style-type: none;
 		margin: auto;
@@ -56,9 +60,20 @@
 		display: inline;
 	}
 
+	lin span {
+		display: none;
+	}
+
+	lin:hover span {
+		display: block;
+		position: absolute; left: 1271px; top: 50px; z-index: 2; width: 125px;
+		padding: 5px; margin: 10px; z-index: 2;
+		color: black; background: #ECF1EF;
+		font: 10px Verdana, sans-serif; text-align: center;
+	}
+
 	li {
 		float: left;
-
 	}
 
 	li span {
@@ -68,8 +83,8 @@
 	li:hover span {
 		display: block;
 		position: relative; z-index: -1;  width: 125px;
-		padding: 5px; margin: 10px; z-index: 100;
-		color: #AAA; background: black;
+		padding: 5px; margin: 10px; z-index: -1;
+		color: black; background: #ECF1EF;
 		font: 10px Verdana, sans-serif; text-align: center;
 	}
 

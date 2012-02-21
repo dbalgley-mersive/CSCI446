@@ -1,7 +1,7 @@
 <h1>Articl.es</h1>
 
 <sub>All the World's Articles</sub>
-<%= link_to(image_tag("book_add.png", :border => 0), new_article_path) %> Create an Article
+<lin><%= link_to(image_tag("book_add.png", :border => 0), new_article_path) %><span>Create an Article</span></lin> <!--todo-->
 
 <div style="overflow:scroll; height:355px">
 <table>
@@ -35,9 +35,9 @@ Widget.find :first, :offset => offset-->
 
 
     <td class="list_actions">
-      <%= link_to(image_tag("book_go.png", :border => 0), article) %>
-      <%= link_to(image_tag("book_edit.png", :border => 0), edit_article_path(article)) %>
-      <%= link_to(image_tag("bin.png", :border => 0), article, confirm: 'Are you sure you wish to delete this article?', method: :delete) %> 
+      <lin><%= link_to(image_tag("book_go.png", :border => 0), article) %><span>View Article</span></lin>
+      <lin><%= link_to(image_tag("book_edit.png", :border => 0), edit_article_path(article)) %><span>Edit Article</span></lin>
+      <lin><%= link_to(image_tag("bin.png", :border => 0), article, confirm: 'Are you sure you wish to delete this article?', method: :delete) %><span>Delete Article</span></lin>
     </td>
     </p>
   </tr>
