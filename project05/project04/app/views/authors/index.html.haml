@@ -1,0 +1,34 @@
+%br/
+
+%body
+  %sub All the World's Authors
+  %lin
+    = link_to(image_tag("book_add.png", :border => 0), new_author_path)
+    %span Enter an Author
+  %div
+    %br/
+  #tableContainer.tableContainer
+    %table.scrollTable{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}
+      %thead.fixedHeader
+        %tr
+          %th
+            %a{:href => "#"} Image
+          %th
+            %a{:href => "#"} Author Name
+          %th
+            %a{:href => "#"} Actions
+      %tbody.scrollContent
+        - @authors.each do |authors|
+          %tr{ :class => cycle('normalRow', 'alternateRow')}
+            %td=h authors.image_path
+            %td=h authors.author_name
+            %td.list_actions
+              %lin
+                = link_to(image_tag("book_go.png", :border => 0), authors)
+                %span View Author
+              %lin
+                = link_to(image_tag("book_edit.png", :border => 0), edit_author_path(authors))
+                %span Edit Author
+              %lin
+                = link_to(image_tag("bin.png", :border => 0), authors, confirm: 'Are you sure you wish to delete this author?', method: :delete)
+                %span Remove Author

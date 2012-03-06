@@ -1,4 +1,6 @@
 Articles::Application.routes.draw do
+  resources :authors
+
   resources :article_data
 
   resources :articles

@@ -1,0 +1,15 @@
+%br/
+%sub
+  Editing article #{@article.title}
+%ul
+  %li
+    = link_to(image_tag("book_go.png", :border => 0), @article)
+    %span Show Article
+  %li
+    = link_to(image_tag("arrow_undo.png", :border => 0), :back)
+    %span Go Back
+%br/
+%br/
+%br/
+%br/
+= render 'form'

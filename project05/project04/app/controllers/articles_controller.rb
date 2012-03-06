@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     @articles = Article.all
-
+    @authors = Author.order(:id)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @articles }
@@ -41,7 +41,7 @@ class ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @article = Article.new(params[:article])
-
+    Article.update_counter @article, :ident
     respond_to do |format|
       if @article.save
         format.html { redirect_to @article, notice: 'Article was successfully created.' }

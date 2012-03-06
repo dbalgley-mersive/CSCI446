@@ -1,0 +1,24 @@
+%p#notice= notice
+%div
+  %ul
+    %li
+      = link_to(image_tag("arrow_undo.png", :border => 0), articles_path)
+      %span Back to Article List
+    %li
+      = link_to(image_tag("book_edit.png", :border => 0), edit_article_path(@article))
+      %span Edit the Article
+    %li
+      = link_to(image_tag("bin.png", :border => 0), articles_path, confirm: 'Are you sure you wish to delete this article?', method: :delete)
+      %span Delete the Article
+    %li
+      = link_to(image_tag("email.png", :border => 0), method: mail_to(:subject => @article.title))
+      %span Share this Article
+  %br/
+%br/
+%br/
+%sub
+  = @article.title
+%p
+  by #{@article.author_name}.  XXX #{@article.creation_date.strftime("edits since %b. %d, %Y")}.
+%p
+  = @article.body

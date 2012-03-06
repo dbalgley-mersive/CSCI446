@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120221051340) do
+ActiveRecord::Schema.define(:version => 20120306041607) do
 
   create_table "article_data", :force => true do |t|
     t.integer  "edits"
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(:version => 20120221051340) do
     t.date     "creation_date"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.integer  "ident"
+  end
+
+  create_table "authors", :force => true do |t|
+    t.string   "author_name"
+    t.string   "image_path"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "authId"
   end
 
 end

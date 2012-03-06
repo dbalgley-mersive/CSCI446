@@ -1,15 +1,21 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>Articles</title>
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Articles -- All the World's Articles (with a name .com hipsters love)</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-  
 </head>
 <body class='<%= controller.controller_name %>'>
+	<div id="container">
+		<h1>Articl.es</h1>
+		<h2><%= yield :subtitle %></h2>
 
-<%= yield %>
-
+		<ul class="menubar">
+			<li><%= link_to "articles", articles_path %></li>
+			<li><%= link_to "authors", authors_path %></li>
+		</ul>
+		<%= yield %>
+	</div>
 </body>
 </html>

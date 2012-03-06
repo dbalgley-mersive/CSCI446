@@ -1,4 +1,6 @@
 class Article < ActiveRecord::Base
-	validates :title, :author_name, :body, presence: true
+	belongs_to :author
+	validates :title, :body, presence: true
 	validates :title, uniqueness: true
+
 end

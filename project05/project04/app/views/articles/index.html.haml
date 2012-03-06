@@ -1,0 +1,40 @@
+%br/
+
+%body
+  %sub All the World's Articles
+  %lin
+    = link_to(image_tag("book_add.png", :border => 0), new_article_path)
+    %span Add an Article
+  %div
+    %br/
+  #tableContainer.tableContainer
+    %table.scrollTable{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}
+      %thead.fixedHeader
+        %tr
+          %th
+            %a{:href => "#"} Title
+          %th
+            %a{:href => "#"} Author Name
+          %th
+            %a{:href => "#"} Body
+          %th
+            %a{:href => "#"} Creation Date
+          %th
+            %a{:href => "#"} Actions           
+      %tbody.scrollContent
+        - @articles.each do |article|
+          %tr{ :class => cycle('normalRow', 'alternateRow')}
+            %td= h article.title
+            %td= h Author.find_by_authId(article.ident, :author_name)
+            %td= truncate(article.body, :length=>20)
+            %td= article.creation_date
+            %td.list_actions
+              %lin
+                = link_to(image_tag("book_go.png", :border => 0), article)
+                %span View Article
+              %lin
+                = link_to(image_tag("book_edit.png", :border => 0), edit_article_path(article))
+                %span Edit Article
+              %lin
+                = link_to(image_tag("bin.png", :border => 0), article, confirm: 'Are you sure you wish to delete this Article?', method: :delete)
+                %span Remove Article
