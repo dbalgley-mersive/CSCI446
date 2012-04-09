@@ -34,7 +34,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = User.current_user
+    @user = current_user
   end
 
   # POST /users
@@ -55,7 +55,7 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.json
   def update
-    @user = User.current_user
+    @user = current_user
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
