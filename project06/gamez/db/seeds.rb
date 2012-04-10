@@ -25,11 +25,13 @@ modules_to_load = [
 ].reject{ |m| User.included_modules.include? m }
 User.send :include, *modules_to_load
 puts "Seed data"
+Role.delete_all
+Role.create!(:name => 'Admin')
+Role.create!(:name => 'User')
 User.delete_all
-User.create(:username => 'dbalgley1', password: 'tempa', password_confirmation: 'tempa', firstName: 'Davisa', lastName: 'Balgleya', email: 'dbalgley1@mines.edu', imagePath: 'image.png', role: 'admin', numGames: '10')
-User.create(:username => 'dbalgley2', password: 'tempb', password_confirmation: 'tempb', firstName: 'Davisb', lastName: 'Balgleyb', email: 'dbalgley2@mines.edu', imagePath: 'image.png', role: 'admin', numGames: '10')
-User.create(:username => 'dbalgley3', password: 'tempc', password_confirmation: 'tempc', firstName: 'Davisc', lastName: 'Balgleyc', email: 'dbalgley3@mines.edu', imagePath: 'image.png', role: 'admin', numGames: '10')
-User.create(:username => 'dbalgley4', password: 'tempd', password_confirmation: 'tempd', firstName: 'Davisd', lastName: 'Balgleyd', email: 'dbalgley4@mines.edu', imagePath: 'image.png', role: 'admin', numGames: '10')
-User.create(:username => 'dbalgley5', password: 'tempe', password_confirmation: 'tempe', firstName: 'Davise', lastName: 'Balgleye', email: 'dbalgley5@mines.edu', imagePath: 'image.png', role: 'admin', numGames: '10')
-User.create(:username => 'dbalgley6', password: 'tempf', password_confirmation: 'tempf', firstName: 'Davisf', lastName: 'Balgleyf', email: 'dbalgley6@mines.edu', imagePath: 'image.png', role: 'admin', numGames: '10')
-
+User.create(:username => 'dbalgley1', password: 'tempa', password_confirmation: 'tempa', firstName: 'Davisa', lastName: 'Balgleya', email: 'dbalgley1@mines.edu', imagePath: 'image.png', :role_id => Role.find_or_create_by_name("admin").id, numGames: '10')
+User.create(:username => 'dbalgley2', password: 'tempb', password_confirmation: 'tempb', firstName: 'Davisb', lastName: 'Balgleyb', email: 'dbalgley2@mines.edu', imagePath: 'image.png', :role_id => Role.find_or_create_by_name("admin").id, numGames: '10')
+User.create(:username => 'dbalgley3', password: 'tempc', password_confirmation: 'tempc', firstName: 'Davisc', lastName: 'Balgleyc', email: 'dbalgley3@mines.edu', imagePath: 'image.png', :role_id => Role.find_or_create_by_name("admin").id, numGames: '10')
+User.create(:username => 'dbalgley4', password: 'tempd', password_confirmation: 'tempd', firstName: 'Davisd', lastName: 'Balgleyd', email: 'dbalgley4@mines.edu', imagePath: 'image.png', :role_id => Role.find_or_create_by_name("admin").id, numGames: '10')
+User.create(:username => 'dbalgley5', password: 'tempe', password_confirmation: 'tempe', firstName: 'Davise', lastName: 'Balgleye', email: 'dbalgley5@mines.edu', imagePath: 'image.png', :role_id => Role.find_or_create_by_name("admin").id, numGames: '10')
+User.create(:username => 'dbalgley6', password: 'tempf', password_confirmation: 'tempf', firstName: 'Davisf', lastName: 'Balgleyf', email: 'dbalgley6@mines.edu', imagePath: 'image.png', :role_id => Role.find_or_create_by_name("user").id, numGames: '10')

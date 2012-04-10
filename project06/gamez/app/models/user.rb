@@ -5,4 +5,8 @@ class User < ActiveRecord::Base
 	    c.login_field = :username
 	  end
 	attr_accessor :password_confirmation
+
+	def role_symbols
+    	[role.name.downcase.to_sym]
+  	end
 end

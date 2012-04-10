@@ -1,4 +1,5 @@
 class UserSessionsController < ApplicationController
+  filter_resource_access
   # GET /user_sessions/new
   # GET /user_sessions/new.json
   def new
