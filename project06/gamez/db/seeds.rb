@@ -6,10 +6,30 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create(username: 'dbalgley', password: 'abc123', firstName: 'Davis', lastName: 'Balgley', email: 'dbalgley@mines.edu', imagePath: 'image.png', role: 'admin', numGames: '10')
-User.create(username: 'dbalgley', password: 'abc123', firstName: 'Davis', lastName: 'Balgley', email: 'dbalgley@mines.edu', imagePath: 'image.png', role: 'admin', numGames: '10')
-User.create(username: 'dbalgley', password: 'abc123', firstName: 'Davis', lastName: 'Balgley', email: 'dbalgley@mines.edu', imagePath: 'image.png', role: 'admin', numGames: '10')
-User.create(username: 'dbalgley', password: 'abc123', firstName: 'Davis', lastName: 'Balgley', email: 'dbalgley@mines.edu', imagePath: 'image.png', role: 'admin', numGames: '10')
-User.create(username: 'dbalgley', password: 'abc123', firstName: 'Davis', lastName: 'Balgley', email: 'dbalgley@mines.edu', imagePath: 'image.png', role: 'admin', numGames: '10')
-User.create(username: 'dbalgley', password: 'abc123', firstName: 'Davis', lastName: 'Balgley', email: 'dbalgley@mines.edu', imagePath: 'image.png', role: 'admin', numGames: '10')
-User.create(username: 'dbalgley', password: 'abc123', firstName: 'Davis', lastName: 'Balgley', email: 'dbalgley@mines.edu', imagePath: 'image.png', role: 'admin', numGames: '10')
+modules_to_load = [
+  Authlogic::ActsAsAuthentic::SingleAccessToken::Methods::InstanceMethods,
+  Authlogic::ActsAsAuthentic::SingleAccessToken::Methods,
+  Authlogic::ActsAsAuthentic::SessionMaintenance::Methods,
+  Authlogic::ActsAsAuthentic::PersistenceToken::Methods::InstanceMethods,
+  Authlogic::ActsAsAuthentic::PersistenceToken::Methods,
+  Authlogic::ActsAsAuthentic::PerishableToken::Methods::InstanceMethods,
+  Authlogic::ActsAsAuthentic::PerishableToken::Methods,
+  Authlogic::ActsAsAuthentic::Password::Methods::InstanceMethods,
+  Authlogic::ActsAsAuthentic::Password::Methods,
+  Authlogic::ActsAsAuthentic::Password::Callbacks,
+  Authlogic::ActsAsAuthentic::MagicColumns::Methods,
+  Authlogic::ActsAsAuthentic::Login::Methods,
+  Authlogic::ActsAsAuthentic::LoggedInStatus::Methods::InstanceMethods,
+  Authlogic::ActsAsAuthentic::LoggedInStatus::Methods,
+  Authlogic::ActsAsAuthentic::Email::Methods
+].reject{ |m| User.included_modules.include? m }
+User.send :include, *modules_to_load
+puts "Seed data"
+User.delete_all
+User.create(:username => 'dbalgley1', password: 'tempa', password_confirmation: 'tempa', firstName: 'Davisa', lastName: 'Balgleya', email: 'dbalgley1@mines.edu', imagePath: 'image.png', role: 'admin', numGames: '10')
+User.create(:username => 'dbalgley2', password: 'tempb', password_confirmation: 'tempb', firstName: 'Davisb', lastName: 'Balgleyb', email: 'dbalgley2@mines.edu', imagePath: 'image.png', role: 'admin', numGames: '10')
+User.create(:username => 'dbalgley3', password: 'tempc', password_confirmation: 'tempc', firstName: 'Davisc', lastName: 'Balgleyc', email: 'dbalgley3@mines.edu', imagePath: 'image.png', role: 'admin', numGames: '10')
+User.create(:username => 'dbalgley4', password: 'tempd', password_confirmation: 'tempd', firstName: 'Davisd', lastName: 'Balgleyd', email: 'dbalgley4@mines.edu', imagePath: 'image.png', role: 'admin', numGames: '10')
+User.create(:username => 'dbalgley5', password: 'tempe', password_confirmation: 'tempe', firstName: 'Davise', lastName: 'Balgleye', email: 'dbalgley5@mines.edu', imagePath: 'image.png', role: 'admin', numGames: '10')
+User.create(:username => 'dbalgley6', password: 'tempf', password_confirmation: 'tempf', firstName: 'Davisf', lastName: 'Balgleyf', email: 'dbalgley6@mines.edu', imagePath: 'image.png', role: 'admin', numGames: '10')
+

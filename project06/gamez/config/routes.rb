@@ -1,5 +1,7 @@
 Gamez::Application.routes.draw do
 
+  resources :games
+
   match 'login', :to => 'user_sessions#new', :as => "login"
   match 'logout', :to => 'user_sessions#destroy', :as => "logout"
   match 'root_url', :to => 'users#index', :as => "root"
