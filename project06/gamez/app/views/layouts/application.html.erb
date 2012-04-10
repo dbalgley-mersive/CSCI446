@@ -12,7 +12,7 @@
 			<%= "Logged in as " %>
 			<%= link_to (current_user.firstName), edit_user_path(:current) %>
 			<%= link_to current_user.lastName, edit_user_path(:current) %>, 
-			<%= current_user.role %>
+			<%= current_user.role_id %>
 			<%= link_to "Logout", logout_path %>
 		<% else %>
 			<%= link_to "Register", new_user_path %> |

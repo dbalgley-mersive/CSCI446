@@ -41,6 +41,7 @@ class GamesController < ApplicationController
   # POST /games.json
   def create
     @game = Game.new(params[:game])
+    @game.user_id = current_user.id  
 
     respond_to do |format|
       if @game.save
@@ -56,7 +57,7 @@ class GamesController < ApplicationController
   # PUT /games/1
   # PUT /games/1.json
   def update
-    @game = Game.find(params[:id])
+    @game = Games.find(params[:id])
 
     respond_to do |format|
       if @game.update_attributes(params[:game])
@@ -72,7 +73,7 @@ class GamesController < ApplicationController
   # DELETE /games/1
   # DELETE /games/1.json
   def destroy
-    @game = Game.find(params[:id])
+    @game = Games.find(params[:id])
     @game.destroy
 
     respond_to do |format|

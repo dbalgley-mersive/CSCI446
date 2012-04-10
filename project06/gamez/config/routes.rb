@@ -7,8 +7,8 @@ Gamez::Application.routes.draw do
   match 'root_url', :to => 'users#index', :as => "root"
 
   resources :user_sessions
-  resources :roles
-  resources :users
+  resources :roles, :has_many => :users
+  resources :users, :has_many => :games, :has_one => :role
 
 
   # The priority is based upon order of creation:

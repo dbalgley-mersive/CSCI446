@@ -12,8 +12,8 @@ class UserSessionsController < ApplicationController
 
     respond_to do |format|
       if @user_session.save
-        format.html { redirect_to :root, notice: 'Logged in successfully.' }
-        format.json { render json: @user_session, status: :created, location: @user_session }
+        format.html { redirect_to :root }
+        format.json { render json: @user_session, status: :created, location: @user_session, notice: 'Logged in successfully.' }
       else
         format.html { render action: "new" }
         format.json { render json: @user_session.errors, status: :unprocessable_entity }
@@ -26,12 +26,10 @@ class UserSessionsController < ApplicationController
   def destroy
     @user_session = UserSession.find
     @user_session.destroy
-    flash[:notice] = "Successfully logged out."
-    redirect_to :root
 
     respond_to do |format|
-      format.html { redirect_to :root }
-      format.json { head :no_content }
+      format.html { redirect_to :root, notice: 'Logged out successfully.' }
+      format.json { head :no_content, notice: 'Logged in successfully.' }
     end
   end
 end
