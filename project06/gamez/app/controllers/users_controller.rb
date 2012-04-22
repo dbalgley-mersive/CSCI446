@@ -50,8 +50,6 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.json
   def update
-    @user = current_user
-
     respond_to do |format|
       if @user.update_attributes(params[:user])
         format.html { redirect_to root_url, notice: 'Successfully updated profile.' }
@@ -66,7 +64,6 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user = User.find(params[:id])
     @user.destroy
 
     respond_to do |format|

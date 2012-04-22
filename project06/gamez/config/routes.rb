@@ -8,7 +8,7 @@ Gamez::Application.routes.draw do
 
   resources :user_sessions
   resources :roles, :has_many => :users
-  resources :users, :has_many => :games, :has_one => :role
+  resources :users, :has_many => :games, :has_many => :roles
 
 
   # The priority is based upon order of creation:

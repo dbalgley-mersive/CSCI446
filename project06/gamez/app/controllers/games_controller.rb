@@ -14,8 +14,6 @@ class GamesController < ApplicationController
   # GET /games/1
   # GET /games/1.json
   def show
-    @game = Game.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @game }
@@ -25,8 +23,6 @@ class GamesController < ApplicationController
   # GET /games/new
   # GET /games/new.json
   def new
-    @game = Game.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @game }
@@ -35,14 +31,12 @@ class GamesController < ApplicationController
 
   # GET /games/1/edit
   def edit
-    @game = Game.find(params[:id])
   end
 
   # POST /games
   # POST /games.json
   def create
-    @game = Game.new(params[:game])
-    @game.user_id = current_user.id  
+   @game.user_id = current_user.id  
 
     respond_to do |format|
       if @game.save
@@ -58,8 +52,6 @@ class GamesController < ApplicationController
   # PUT /games/1
   # PUT /games/1.json
   def update
-    @game = Games.find(params[:id])
-
     respond_to do |format|
       if @game.update_attributes(params[:game])
         format.html { redirect_to @game, notice: 'Game was successfully updated.' }
@@ -74,7 +66,6 @@ class GamesController < ApplicationController
   # DELETE /games/1
   # DELETE /games/1.json
   def destroy
-    @game = Games.find(params[:id])
     @game.destroy
 
     respond_to do |format|

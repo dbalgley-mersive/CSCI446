@@ -10,6 +10,7 @@
   <%= @game.rating %>
 </p>
 
-
-<%= link_to 'Edit', edit_game_path(@game) %> |
+<% if permitted_to? :edit, @game%>
+	<%= link_to 'Edit', edit_game_path(@game) %> |
+<% end %>
 <%= link_to 'Back', games_path %>
