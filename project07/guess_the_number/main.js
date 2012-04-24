@@ -1,4 +1,4 @@
-var guessesLeft = 1;
+var guessesLeft = 10;
 var highScores = new Array([9, "HarryJamesPotter"], [3, "ZedCthulhu"], [2, "NearlyDied"]);
 var randomNumber = Math.floor(Math.random() * 101);
 
@@ -12,32 +12,48 @@ $(function() {
 function guessChecker() {
 	var inputField = document.getElementById("guess");
 	var entry = parseFloat( inputField.value );
-	//alert(entry);
 	guess = entry;
-	//lert("guesschecker");
 	if(guess == randomNumber) {
-		alert("Win");
+		alert("You are Win.rar!");
+		bigFatWinner(guessesLeft);
 		document.getElementById( "guess" ).value="";
 		return;
 	}
 	if(guess < randomNumber) {
-		alert("Too low");
+		alert("Your guess is too low!");
 		guessesLeft=guessesLeft-1;
 		updateScore(guessesLeft);
+		bigFatLoser(guessesLeft);
 		document.getElementById( "guess" ).value="";
 		return;
 	}
 	if(guess > randomNumber) {
-		alert("Too high");
+		alert("Your guess is too high!");
 		guessesLeft=guessesLeft-1;
 		updateScore(guessesLeft);
+		bigFatLoser(guessesLeft);
 		document.getElementById( "guess" ).value="";
 		return;
 	}
+}
 
+function bigFatLoser(guessesLeft)
+{
+	if(guessesLeft == 0)
+	{
+		alert("loser");
+	}
+}
+
+function bigFatWinner(guessesLeft)
+{
+	alert(guessesLeft);
+	highScores.push([guessesLeft, "name"]);
+	populateHighScores(highScores);
 }
 
 function populateHighScores(scores) {
+	$('div#highScores').empty();
   for (var i = 0; i < scores.length; ++i) {
     $('div#highScores').append("<p>" + scores[i][0] + " " + scores[i][1] + "</p>");
   }
